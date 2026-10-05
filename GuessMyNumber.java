@@ -11,20 +11,22 @@ public class GuessMyNumber {
 		int YOUR_GUESS = in.nextInt();
 		Random random= new Random();
 		int number = random.nextInt(100) + 1;	
-		GuessAgain(YOUR_GUESS, number);
+		GuessAgain(YOUR_GUESS, number, 0);
 	}
 	
-	public static void GuessAgain (int YOUR_GUESS, int number) {
-		if (YOUR_GUESS==number) {
-			System.out.print("You guessed it!");
+	public static void GuessAgain (int YOUR_GUESS, int number, int numtries) {
+		if (numtries>=3) {
+			System.out.println("You ran out of guesses! Bad luck?");
+		}else if (YOUR_GUESS==number) {
+			System.out.print("You guessed it! Good job!");
 		}else if (YOUR_GUESS>number) {
 			System.out.print("The guess is too high, try again: ");
 			YOUR_GUESS = in.nextInt();
-			GuessAgain(YOUR_GUESS, number);
+			GuessAgain(YOUR_GUESS, number, numtries+1);
 		} else if (YOUR_GUESS<number) {
 			System.out.print("The guess is too low, try again: ");
 			YOUR_GUESS = in.nextInt();
-			GuessAgain(YOUR_GUESS, number);
+			GuessAgain(YOUR_GUESS, number, numtries+1);
 		}
 	}
 }
