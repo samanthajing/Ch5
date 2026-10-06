@@ -13,12 +13,13 @@ public class Quadratic {
 		if (Discriminant(aVal, bVal, cVal)<0){
 			System.out.print("Math Error: Cannot Take Squre Root of a Negative Number");
 		} else {
-			System.out.print(QuadraticFormula(aVal, bVal, cVal));
+			QuadraticFormula(aVal, bVal, cVal);
 		}
 	}
 	
-	public static double QuadraticFormula(int a, int b, int c){
-		return (-b+Math.sqrt(Math.pow(b,2)-4*a*c))/(2*a);
+	public static void QuadraticFormula(int a, int b, int c){
+		System.out.println("root: "+(-b+Math.sqrt(Math.pow(b,2)-4*a*c))/(2*a));
+		System.out.println("second root: "+(-b-Math.sqrt(Math.pow(b,2)-4*a*c))/(2*a));
 	}
 	
 	public static double Discriminant(int a, int b, int c){
